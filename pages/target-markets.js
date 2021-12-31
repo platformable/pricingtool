@@ -49,7 +49,7 @@ useEffect(()=>{
             <div className="form-container grid grid-cols-2 items-center mt-2">
               <div>
                 <h5 className="text-gray-500 text-xl">
-                "What is the proportion of total revenues expected from HEAD?
+                What is the proportion of total revenues expected from HEAD?
                 </h5>
               </div>
               <div>
@@ -66,7 +66,7 @@ useEffect(()=>{
             <div className="form-container grid grid-cols-2 items-center mt-2">
               <div>
                 <h5 className="text-gray-500 text-xl">
-                "What is the proportion of total revenues expected from LONG-TAIL?
+                What is the proportion of total revenues expected from LONG-TAIL?
                 </h5>
               </div>
               <div>

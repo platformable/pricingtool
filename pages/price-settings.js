@@ -329,10 +329,10 @@ export default function PriceSettings() {
 
             <section className="choices">
               <h3 className="font-black text-xl mt-10 text-main-color">
-                "Given your choices, the annual break-even revenues required
+                Given your choices, the annual break-even revenues required
                 from each API for each target market segment is calculated to
                 be: (that is, (establishment costs + operating costs)*% share of
-                each target market segment)"
+                each target market segment)
               </h3>
               <div className="form-container grid grid-cols-2 items-center">
                 <div>
