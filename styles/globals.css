@@ -1,9 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 a {
@@ -13,4 +16,84 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+/* COLORS */
+:root {
+  --russian-violet-dark: #1b014c;
+  --russian-violet-light: #e5ddf6;
+  --sunglow-dark: #ffd23f;
+  --sunglow-light: #ffe89e;
+  --red-orange-dark: #fb5012;
+  --red-orange-light: #fed2vc2;
+  --fluorecent-blue-dark: #01fdf6;
+  --fluorecent-blue-light: #80fefa;
+  --lavender-blue-dark: #cbbaed;
+  --lavender-blue-light: #e5ddf6;
+  --light-coral-dark: #ef767a;
+  --light-coral-light: #fad8d9;
+  --sea-green-dark: #23f0c7;
+  --sea-green-light: #e0fdf7;
+  --middle-blue-purple-dark: #7d7abc;
+  --middle-blue-purple-light: #edecf5;
+  --ob-dark: #fb5012;
+  --ob-light: #fbac8f;
+  --og-dark: #632fae;
+  --og-light: #9686ae;
+  --oh-dark:#0956Fc;
+  --oh-light:#87acfc;
+  --os-dark:#0ce6A3;
+  --os-light:#8BF3D2;
+}
+
+.bg-main-color {
+background-color: var(--russian-violet-dark);
+}
+
+.bg-main-color-light {
+  background-color: var( --russian-violet-light);
+}
+
+.bg-ob-light {
+  background-color: var( --ob-light);
+}
+.btn-main-bg-color {
+  background-color:var(--russian-violet-dark);
+  color:white;
+}
+
+.btn-border-main-bg-color {
+  border:1px solid var(--russian-violet-dark);
+}
+
+.btn-border-main-bg-color:hover {
+  border:1px solid var(--russian-violet-dark);
+  background-color: var(--russian-violet-dark);
+  color:white;
+  transition: 0.4s ease-in-out;
+}
+
+.btn-main-bg-color:hover {
+  background-color:var(--russian-violet-light);
+  color:var(--russian-violet-dark);
+  transition: 0.4s ease-in-out;
+}
+
+.text-main-color {
+  color:var(--russian-violet-dark);
+}
+
+input[type='range'] {
+  accent-color: #F55050;
+/*   overflow: hidden;
+
+  -webkit-appearance: none;
+  background-color: var(--russian-violet-dark); */
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+
+  border-radius: 20px;
+  background: var(--russian-violet-dark);
+
 }
