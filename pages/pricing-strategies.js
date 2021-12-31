@@ -6,7 +6,7 @@ import Link from "next/link";
 import Head from 'next/head'
 
 
-export default function pricingStrategies() {
+export default function PricingStrategies() {
   const router = useRouter();
   const [user, setUser] = useContext(UserContext);
   const { primaryObjective,pricingModel,businessModel } = user;

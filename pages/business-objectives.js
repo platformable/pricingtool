@@ -7,7 +7,7 @@ import Head from 'next/head'
 
 import { businessModels } from "../utils/businessModels";
 
-export default function businessObjectives() {
+export default function BusinessObjectives() {
 
   const router = useRouter();
   const [user, setUser] = useContext(UserContext);

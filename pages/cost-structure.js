@@ -4,7 +4,7 @@ import { UserContext } from "../context/UserContext";
 import Layout from "../components/Layout";
 import Link from "next/link";
 import Head from 'next/head'
-export default function costStructure() {
+export default function CostStructure() {
   const router = useRouter();
   const [user, setUser] = useContext(UserContext);
   const { costModel ,primaryObjective,apiCostModel} = user;
