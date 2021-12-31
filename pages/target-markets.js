@@ -56,7 +56,7 @@ useEffect(()=>{
                 {businessModel === "Distribution"?
                 <input type="number" className="border w-full rounded py-2 text-center" placeholder="" disabled value="70"/>
               : <input type="number" className="border w-full rounded py-2 text-center" placeholder="" 
-              onChange={(e)=>setUser({...user,revenueHead:e.target.value})} min="10" max="100" 
+              onChange={(e)=>setUser({...user,revenueHead:e.target.value})} min="1" max="100" 
               value={user.revenueHead ? user.revenueHead: "" }
               /> }
                 
@@ -90,11 +90,6 @@ useEffect(()=>{
               <input type="text" className="border w-full rounded  py-2 text-center" value={checkTotaltarget(revenueHead,revenueLongTail)} onChange={(e)=>setUser({...user,totalConsumerMarket:e.target.value})}/>
               </div>
             </div>
-
-            
-
-
-
             <div className="mt-16">
               <button className="btn btn-main-bg-color  px-5 py-2 rounded mr-1 hover:cursor-pointer mt-5 shadow">
                 <Link href="/price-settings">Continue</Link>

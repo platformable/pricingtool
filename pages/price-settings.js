@@ -107,8 +107,8 @@ export default function PriceSettings() {
     let result=0
 
     if(
-        pricingModel.title==="Minimum number of transactions requiered per year" || 
-        pricingModel.title==="Minimum number of clicks required per year"){
+        pricingModel.title===`Minimum number of transactions requiered per year` || 
+        pricingModel.title===`Minimum number of clicks required per year`){
             console.log(1)
         result=tailRevenue/tail.tail1
         return result.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})

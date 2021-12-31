@@ -110,7 +110,7 @@ export default function CostStructure() {
                     {costModelList && (
                       <ul
                         className="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
-                        tabindex="-1"
+                        tabIndex="-1"
                         role="listbox"
                         aria-labelledby="listbox-label"
                         aria-activedescendant="listbox-option-3"

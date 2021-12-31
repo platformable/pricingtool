@@ -82,7 +82,7 @@ export default function PricingStrategies() {
            
                        return(
                       
-                        <div className={`relative grid grid-cols-1 gap-4 p-4 mb-8  border rounded-lg   ${checkSelectedCard(value) ? 'bg-purple-50 shadow-xl': "bg-white shadow"}`}  onClick={()=>handleSelectedCard(value)}>
+                        <div className={`relative grid grid-cols-1 gap-4 p-4 mb-8  border rounded-lg   ${checkSelectedCard(value) ? 'bg-purple-50 shadow-xl': "bg-white shadow"}`}  onClick={()=>handleSelectedCard(value)} key={index}>
                         <div className="relative flex gap-4">
                         
                             {/* <img src="https://icons.iconarchive.com/icons/diversity-avatars/avatars/256/charlie-chaplin-icon.png" className="relative rounded-lg -top-8 -mb-4 bg-white border h-20 w-20" alt="" loading="lazy" /> */}
@@ -90,7 +90,7 @@ export default function PricingStrategies() {
                             {/* <div className=" flex   justify-end "><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"/></div> */}
                                 <div className="flex flex-row justify-between">
                                     <p className="relative text-xl whitespace-nowrap truncate overflow-hidden">{value.name}</p>
-                                    <a className="text-gray-500 text-lg" href="#"><i class="fa-solid fa-trash"></i></a>
+                                    <a className="text-gray-500 text-lg" href="#"><i className="fa-solid fa-trash"></i></a>
                                 </div>
                                 {/* <p class="text-gray-400 text-sm">20 April 2022, at 14:88 PM</p> */}
                             </div>

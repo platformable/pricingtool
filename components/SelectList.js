@@ -35,7 +35,7 @@ export default function SelectList() {
           {primaryObjectiveList && (
             <ul
               className="absolute z-10 mt-1 w-full bg-red-orange-dark shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
-              tabindex="-1"
+              tabIndex="-1"
               role="listbox"
               aria-labelledby="listbox-label"
               aria-activedescendant="listbox-option-3"
@@ -44,7 +44,7 @@ export default function SelectList() {
               }
             >
               <li
-                className="select-none relative py-2 pl-3 pr-9 cursor-pointer hover:bg-gray-200"
+                className="select-none relative py-2 pl-3 pr-9 cursor-pointer hover:bg-gray-100"
                 id="listbox-option-0"
                 role="option"
                 onClick={() =>
