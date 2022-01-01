@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext,useEffect } from "react";
 import { useRouter } from "next/router";
 import { UserContext } from "../context/UserContext";
 import Layout from "../components/Layout";
@@ -8,6 +8,10 @@ export default function CostStructure() {
   const router = useRouter();
   const [user, setUser] = useContext(UserContext);
   const { costModel ,primaryObjective,apiCostModel} = user;
+  const [myOwnData,setMyOwnData]=useState({
+    cost:null,
+    year:null
+  })
 
   const [costModelList, setCostModelList] = useState(false);
   const [businessModelList, setBusinessModelList] = useState(false);
@@ -15,8 +19,8 @@ export default function CostStructure() {
   const costModels = [
     {
     name:'I will add my own data',
-    cost:null,
-    costYear:null
+    cost:myOwnData.cost,
+    costYear:myOwnData.year
     },
   {
     name:   'Germain Bahri Cost Model - BaaS/full stack digital bank',
@@ -47,6 +51,23 @@ export default function CostStructure() {
     costYear:113152000
     },
   ]
+
+  const handleMyData = ()=>{
+
+ 
+    let model={}
+    model.name="I will add my own data"
+    model.cost=myOwnData.cost,
+    model.costYear=myOwnData.year
+
+    setUser({...user,apiCostModel:model})
+
+
+  }
+
+  useEffect(()=>{
+    handleMyData()
+  },[myOwnData.cost,myOwnData.year])
 
   return (
     <>
@@ -151,9 +172,9 @@ export default function CostStructure() {
                               <p className="text-xs text-gray-400">One-off establishment costs ($)</p>
                               </div>
                               <div className="category-amount grid justify-end self-auto">
-                              {costModel ==="I will add my own data" ? 
-                              <input type="number" placeholder="" className="px-4 border background-red-50 rounded self-auto text-center" onChange={(e)=>setUser({...user,initialEstablishmentCost:e.target.value})} /> 
-                              : <input type="number" placeholder="" className="px-4 border rounded self-auto text-center" value={apiCostModel? apiCostModel?.cost:""}  onChange={()=>setUser({...user,initialEstablishmentCost:apiCostModel.cost})}/>}
+                              {apiCostModel.name ==="I will add my own data" ? 
+                              <input type="number" placeholder="" className="px-4 border background-red-50 rounded self-auto text-center" onChange={(e)=>setMyOwnData({...myOwnData,cost:e.target.value})} placeholder="data"/> 
+                              : <input type="number" placeholder="" className="px-4 border rounded self-auto text-center" value={apiCostModel? apiCostModel?.cost:""}  />}
                               </div>
                           </div>
 
@@ -165,9 +186,9 @@ export default function CostStructure() {
                                 
                               </div>
                               <div className="category-amount grid justify-end self-auto">
-                              {costModel ==="I will add my own data" ? 
-                              <input type="number" placeholder="" className="px-4 border rounded self-auto text-center" onChange={()=>setUser({...user,anualOperatingCost:apiCostModel.cost})}/> 
-                              : <input type="number" placeholder="" className="px-4 border rounded self-auto text-center" value={apiCostModel? apiCostModel?.costYear:""} onChange={()=>setUser({...user,anualOperatingCost:apiCostModel.cost})}/>}
+                              {apiCostModel.name ==="I will add my own data" ? 
+                              <input type="number" placeholder="" className="px-4 border rounded self-auto text-center" onChange={(e)=>setMyOwnData({...myOwnData,year:e.target.value})} placeholder="data"/> 
+                              : <input type="number" placeholder="" className="px-4 border rounded self-auto text-center" value={apiCostModel? apiCostModel?.costYear:""} />}
                               </div>
                           </div>
 
