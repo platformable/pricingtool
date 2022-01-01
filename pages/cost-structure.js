@@ -173,8 +173,8 @@ export default function CostStructure() {
                               </div>
                               <div className="category-amount grid justify-end self-auto">
                               {apiCostModel.name ==="I will add my own data" ? 
-                              <input type="number" placeholder="" className="px-4 border background-red-50 rounded self-auto text-center" onChange={(e)=>setMyOwnData({...myOwnData,cost:e.target.value})} placeholder="data"/> 
-                              : <input type="number" placeholder="" className="px-4 border rounded self-auto text-center" value={apiCostModel? apiCostModel?.cost:""}  />}
+                              <input type="number"  className="px-4 border background-red-50 rounded self-auto text-center" onChange={(e)=>setMyOwnData({...myOwnData,cost:e.target.value})} placeholder="data"/> 
+                              : <input type="number"  className="px-4 border rounded self-auto text-center" value={apiCostModel? apiCostModel?.cost:""}  />}
                               </div>
                           </div>
 
@@ -187,8 +187,8 @@ export default function CostStructure() {
                               </div>
                               <div className="category-amount grid justify-end self-auto">
                               {apiCostModel.name ==="I will add my own data" ? 
-                              <input type="number" placeholder="" className="px-4 border rounded self-auto text-center" onChange={(e)=>setMyOwnData({...myOwnData,year:e.target.value})} placeholder="data"/> 
-                              : <input type="number" placeholder="" className="px-4 border rounded self-auto text-center" value={apiCostModel? apiCostModel?.costYear:""} />}
+                              <input type="number"  className="px-4 border rounded self-auto text-center" onChange={(e)=>setMyOwnData({...myOwnData,year:e.target.value})} placeholder="data"/> 
+                              : <input type="number"  className="px-4 border rounded self-auto text-center" value={apiCostModel? apiCostModel?.costYear:""} />}
                               </div>
                           </div>
 
