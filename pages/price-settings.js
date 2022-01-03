@@ -48,7 +48,7 @@ export default function PriceSettings() {
 
   const calculateHead = () => {
     const result1 =
-      apiCostModel.cost / businessUnits / bundledApis / rolPeriodRecover;
+    apiCostModel.cost / businessUnits / bundledApis / rolPeriodRecover;
     const result2 = apiCostModel.costYear / businessUnits / bundledApis;
     const result3 = (result1 + result2) * revenueHead;
     const result = result3 / 100;
@@ -76,7 +76,7 @@ export default function PriceSettings() {
 
         pricingModel.title==="Minimum number of transactions required per year" || 
         pricingModel.title==="Minimum number of clicks required per year"){
-        console.log("primea ocion")
+
         result=headRevenue/parseInt(head.head1)
         return result.toLocaleString(undefined,{maximumFractionDigits:2})
     }
@@ -92,7 +92,7 @@ export default function PriceSettings() {
 
     if(
         pricingModel.title==="Minimum number of API consumers required per year"){
-            console.log("3ra ocion")
+ 
         const result1=headRevenue
 
         const result2=head.head1*head.head2
@@ -109,7 +109,7 @@ export default function PriceSettings() {
     if(
         pricingModel.title===`Minimum number of transactions requiered per year` || 
         pricingModel.title===`Minimum number of clicks required per year`){
-            console.log(1)
+
         result=tailRevenue/tail.tail1
         return result.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})
     }
@@ -163,7 +163,7 @@ export default function PriceSettings() {
 
   return (
     <>
-    {console.log(head.finalHead)}
+
       <Head>
         <title>API monetization tool</title>
         <link rel="icon" href="/favicon.ico" />
@@ -181,8 +181,8 @@ export default function PriceSettings() {
             <h3 className="font-bold text-5xl text-main-color">
               Price Settings
             </h3>
-            <p>head1:{head.head1}</p>
-            <p>head2:{head.head2}</p>
+            <h3>monoonoono</h3>
+  
             
           </div>
         </section>
