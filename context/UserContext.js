@@ -9,7 +9,7 @@ export const UserContextProvider = ({children})=>{
         name:"",
         email:"",
         apiProductName:"",
-        apidescription:"",
+        apiDescription:"",
         primaryObjective:"",
         businessModel:{},
         apiCostModel:{},
@@ -21,7 +21,11 @@ export const UserContextProvider = ({children})=>{
         revenueLongTail:"",
         initialEstablishmentCost:"",
         anualOperatingCost:"",
-        totalConsumerMarket:""
+        totalConsumerMarket:"",
+        finalHead:null,
+        finalTail:null,
+        head:{},
+        tail:{}
     })
 
     return(

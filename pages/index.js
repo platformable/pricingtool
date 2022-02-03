@@ -1,54 +1,61 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import Header from '../components/Header'
-import Layout from '../components/Layout'
+import Head from "next/head";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import Header from "../components/Header";
+import Layout from "../components/Layout";
+import Image from "next/image";
 
 export default function Home() {
   const router = useRouter();
   return (
     <>
-   <Layout>
-    <div className="flex flex-col  min-h-screen">
-      <Head>
-        <title>API monetization tool</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Layout>
+        <div className="flex flex-col  min-h-screen">
+          <Head>
+            <title>API monetization tool</title>
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
 
-      <section className="hero"> 
-      <div className="container mx-auto h-screen grid items-center">
-        <div className="hero-content grid grid-cols-2 py-5 items-center">
-          <div>
-          <h3 className="font-black text-6xl text-main-color mb-5">Estimate your API development costs</h3>
-          <p className="text-gray-500">Find out how much it will cost to build an app and how long it will take to launch it.</p>
-          <p className="text-gray-500 mb-5">An API cost calculator built with the user in mind.</p>
-          <button className="btn btn-main-bg-color  px-5 py-2 rounded mr-1 hover:cursor-pointer mt-5 shadow" onClick={()=>router.push("/business-objectives")}>Estimate your API cost</button>
-          <button className="btn btn-border-main-bg-color  px-5 py-2 rounded mr-1 hover:cursor-pointer mt-5 shadow" ><Link href="/" >Contact us</Link></button>
-          </div>
-          <div className="grid justify-end">
-          {/* <img src="./heroImg.png" alt="" /> */}
-          </div>
-       </div>
-      </div>
-      </section>
-     
+          <section className="hero">
+            <div className="container mx-auto md:h-screen grid items-center">
+              <div className="hero-content grid md:grid-cols-2 grid-cols-1 py-5 items-center">
+                <div className="md:px-5 lg:px-0 px-5">
+                  <h3 className="font-black md:text-6xl text-3xl text-main-color mb-5">
+                    Estimate your API development costs
+                  </h3>
+                  <p className="md:text-3xl text-xl md:my-10 my-2">
+                    Find out how much it will cost to build an app and how long
+                    it will take to launch it.
+                  </p>
+                  <p className="md:text-3xl text-xl md:my-10 my-2">
+                    An API cost calculator built with the user in mind.
+                  </p>
+                  <div className="md:px-5 lg:px-0 px-5 grid md:grid-cols-2 grid-cols-1">
+                  <button
+                    className="btn bg-ob-dark text-white  px-5 py-2 rounded mr-1 hover:cursor-pointer mt-5 shadow w-100"
+                    onClick={() => router.push("/business-objectives")}
+                  >
+                    Estimate your API cost
+                  </button>
+                  <button className="btn btn-main-bg-color text-white  px-5 py-2 rounded mr-1 hover:cursor-pointer mt-5 shadow">
+                    <Link href="/">Contact us</Link>
+                  </button>
+                  </div>
+                </div>
+                <div className="grid justify-end md:my-0 mt-10">
+                  <Image
+                    src="/API Monetization Tool Isometric.png"
+                    alt="api pricing tool"
+                    width="640" height="460"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
 
-   
-
-
-      <footer className="flex items-center justify-center w-full h-24 border-t">
-        <a
-          className="flex items-center justify-center"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="https://platformable.com/static/5319a443d00bd1eee2efee3fa63ac32c/bc86d/logo.webp" alt="Vercel Logo" className="h-4 ml-2" />
-        </a>
-      </footer>
-    </div>
-    </Layout>
+         
+        </div>
+      </Layout>
     </>
-  )
+  );
 }

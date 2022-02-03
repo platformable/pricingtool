@@ -17,7 +17,7 @@ export default function PricingStrategies() {
   const [businessModelList, setBusinessModelList] = useState(false);
 
  
-
+console.log("user",user)
   
   
 
@@ -35,7 +35,7 @@ export default function PricingStrategies() {
 
 
   const checkSelectedCard = (item)=>{
-    const check = selectedCard.filter(card=>card.name===item.name)
+    const check = selectedCard?.filter(card=>card?.name===item?.name)
     if(check.length===0){
       return false
     }else {
@@ -56,48 +56,46 @@ export default function PricingStrategies() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <section id="costStructure" className="">
-          <div className="container mx-auto my-5">
-            <button
-              className="btn btn-border-main-bg-color px-5 py-2 rounded  hover:cursor-pointer mt-5 shadow my-10"
-              onClick={() => router.back()}
-            >
-              Back
-            </button>
-          
-            <h3 className="font-bold text-5xl text-main-color">
-              Pricing Strategies
-            </h3>
-            <p className="rounded-full bg-main-color text-white text-xs inline-block px-2 py-1">{businessModel.name}</p>
-            <p className="my-5">Please select a pricing strategie</p>
+      <section id="businessObjectives" className="">
+          <div className="container mx-auto my-5 md:px-0 px-5">
+            <p className="text-xs mb-5">Step 04</p>
+            <div className="grid md:grid-cols-2 items-center">
+              <div className="">
+              <h3 className="font-bold text-3xl text-main-color">
+                Price Strategies
+              </h3>
+              <p className="bg-ob-dark text-white rounded-xl px-3 py-1 mt-2 inline-block text-xs">{businessModel.name}</p>
+              <span className="italic block text-xs ml-2 mt-2">Business model category</span>
+              </div>
+              <div className="pdf flex flex-col self-end items-end">
+                <img src="/pdf icon.png" alt="" width={30} height={40} />
+                <a className="hover:cursor-pointer text-xs">find out more</a>
+              </div>
+            </div>
           </div>
         </section>
 
-
-        <section id="costStructure-questions" className="mt-10">
+        
+        <section id="pricing-strategy" className="mt-10">
             <section>
-              <div className="container mx-auto">
-                <div className="cards-container grid md:grid-cols-4 gap-4">
+              <div className="container mx-auto md:px-0 px-5 pricing-strategy">
+                <p className="my-2">Please selec a pricing stratgy</p>
+                <div className="cards-container grid md:grid-cols-4 gap-4 my-5 grid-cols-1">
+         
                 {businessModel?.pricingModels?.map((value,index)=>{
            
                        return(
-                      
-                        <div className={`relative grid grid-cols-1 gap-4 p-4 mb-8  border rounded-lg   ${checkSelectedCard(value) ? 'bg-purple-50 shadow-xl': "bg-white shadow"}`}  onClick={()=>handleSelectedCard(value)} key={index}>
-                        <div className="relative flex gap-4">
-                        
-                            {/* <img src="https://icons.iconarchive.com/icons/diversity-avatars/avatars/256/charlie-chaplin-icon.png" className="relative rounded-lg -top-8 -mb-4 bg-white border h-20 w-20" alt="" loading="lazy" /> */}
-                            <div className="flex flex-col w-full">
-                            {/* <div className=" flex   justify-end "><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"/></div> */}
-                                <div className="flex flex-row justify-between">
-                                    <p className="relative text-xl whitespace-nowrap truncate overflow-hidden">{value.name}</p>
-                                    <a className="text-gray-500 text-lg" href="#"><i className="fa-solid fa-trash"></i></a>
-                                </div>
-                                {/* <p class="text-gray-400 text-sm">20 April 2022, at 14:88 PM</p> */}
-                            </div>
+                      <>
+                        <div className={`relative grid grid-cols-1 gap-4 p-4 mb-8 text-center justify-center border rounded-lg bg-white  h-100 ${checkSelectedCard(value) ? 'card-border shadow-xl': " shadow"}`}  onClick={()=>handleSelectedCard(value)} key={index} >
+                        <div className="text-center grid justify-center">
+                           {/* <img src="https://icons.iconarchive.com/icons/diversity-avatars/avatars/256/charlie-chaplin-icon.png"  className="relative rounded-lg -top-8 -mb-4 bg-white border h-20 w-20"  alt="" loading="lazy" width={60} height={60}/> */}
+                           <img src={value.icon} /* className="relative rounded-lg -top-8 -mb-4 bg-white border h-20 w-20" */ alt="" loading="lazy" /> 
                         </div>
-                        <p className="-mt-4 text-gray-500">{value.description}</p>
+
+                        <h6 className="font-black text-center">{value.name}</h6>
+                        <p className="-mt-4 text-sm">{value.description}</p>
                     </div>
-                   
+                    </>
                        )
                      })}
 

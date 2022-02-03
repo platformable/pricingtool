@@ -4,7 +4,7 @@ import { UserContext } from "../context/UserContext";
 import Layout from "../components/Layout";
 import Link from "next/link";
 import Head from 'next/head'
-
+import Image from "next/image";
 export default function TargetMarkets() {
   const router = useRouter();
   const [user, setUser] = useContext(UserContext);
@@ -16,7 +16,7 @@ export default function TargetMarkets() {
 
   const checkTotaltarget = (head,tail)=>{
 
-const sum = parseInt(head)+ parseInt(tail);
+const sum = parseInt(head)+ parseInt(tail) || 0;
 if (sum>100){
   return "not a valid value"
 } else {
@@ -29,6 +29,9 @@ useEffect(()=>{
   checkTotaltarget(revenueHead,revenueLongTail)
 
 },[revenueHead,revenueLongTail])
+
+
+
   return (
     <>
      <Head>
@@ -36,67 +39,76 @@ useEffect(()=>{
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <section id="businessObjectives" className="">
-          <div className="container mx-auto my-5">
-            <button className="btn btn-border-main-bg-color  px-5 py-2 rounded  hover:cursor-pointer mt-5 shadow my-10" onClick={()=>router.back()}> Back </button>
-            <h3 className="font-bold text-5xl text-main-color">
-              Target markets
-            </h3>
-          </div>
-        </section>
-        <section id="businessObjectives-questions" className="mt-10">
-          <div className="container mx-auto">
-            <div className="form-container grid grid-cols-2 items-center mt-2">
-              <div>
-                <h5 className="text-gray-500 text-xl">
-                What is the proportion of total revenues expected from HEAD?
-                </h5>
+
+
+        
+      <section id="businessObjectives" className="">
+          <div className="container mx-auto my-5 md:px-0 px-5">
+            <p className="text-xs mb-5">Step 03</p>
+            <div className="grid md:grid-cols-2 items-center">
+              <div className="">
+              <h3 className="font-bold text-3xl text-main-color">
+                Target Market
+              </h3>
+              <p className="bg-ob-dark text-white rounded-xl px-3 py-1 mt-2 inline-block text-xs">{businessModel.name}</p>
+              <span className="italic block text-xs ml-2 mt-2">Business model category</span>
               </div>
-              <div>
-                {businessModel === "Distribution"?
-                <input type="number" className="border w-full rounded py-2 text-center" placeholder="" disabled value="70"/>
-              : <input type="number" className="border w-full rounded py-2 text-center" placeholder="" 
-              onChange={(e)=>setUser({...user,revenueHead:e.target.value})} min="1" max="100" 
-              value={user.revenueHead ? user.revenueHead: "" }
-              /> }
-                
+              <div className="pdf flex flex-col self-end items-end">
+                <img src="/pdf icon.png" alt="" width={30} height={40} />
+                <a className="hover:cursor-pointer text-xs">find out more</a>
               </div>
             </div>
+          </div>
+        </section>
 
-            <div className="form-container grid grid-cols-2 items-center mt-2">
-              <div>
-                <h5 className="text-gray-500 text-xl">
-                What is the proportion of total revenues expected from LONG-TAIL?
-                </h5>
-              </div>
-              <div>
+
+        <section className="container mx-auto my-10">
+          <div className="cards-container grid md:grid-cols-3 grid-cols-1 gap-10">
+
+            <div className="target-market-card bg-gray-50 rounded-xl shadow p-5 grid justify-center content-center">
+              <div className="flex justify-center mb-5"><img src="/What is the proportion of total revenues expected from HEAD-.png" width={60} height={60} alt="" /></div>
+              <h3 className="my-5 h-10">What is the proportion of total revenues expected from HEAD?</h3>
               
               {businessModel === "Distribution"?
-                <input type="number" className="border w-full rounded py-2 text-center" placeholder="" disabled value="30"/>
-              : <input type="number" className="border w-full rounded py-2 text-center" placeholder="" 
-              onChange={(e)=>setUser({...user,revenueLongTail:e.target.value})} min="10" max="100"
-              value={user.revenueLongTail ? user.revenueLongTail: "" }
-              /> }
-              </div>
+              <input type="range" min="1" max="100" value="70" className="slider" id="rolPeriodrecoverInput"  min="1" max="70" 
+              value={70}/>
+              : 
+              <input type="range" min="1" max="100" value="0" className="slider" id="rolPeriodrecoverInput" onChange={(e)=>setUser({...user,revenueHead:e.target.value})} min="1" max="100" 
+              value={user.revenueHead ? user.revenueHead: "" }/>
+              }
+            <p className="text-center my-3">{user.revenueHead ?`${user.revenueHead}%`:""}</p>
             </div>
 
-            <div className="form-container grid grid-cols-2 items-center mt-2">
-              <div>
-                <h5 className="text-gray-500 text-xl font-bold">
-               Total consumer market
-                </h5>
-              </div>
-              <div>
-              <input type="text" className="border w-full rounded  py-2 text-center" value={checkTotaltarget(revenueHead,revenueLongTail)} onChange={(e)=>setUser({...user,totalConsumerMarket:e.target.value})}/>
-              </div>
+            <div className="target-market-card bg-gray-50 rounded-xl shadow p-5 grid justify-center content-center">
+              <div className="flex justify-center mb-5"><Image src="/What is the proportion of total revenues expected from LONG-TAIL-.png" width={60} height={60} lt="" /></div>
+              <h3 className="my-5 h-10">What is the proportion of total revenues expected from LONG-TAIL?</h3>
+              {businessModel === "Distribution"?
+              <input type="range" min="1" max="100" value="70" className="slider" id="rolPeriodrecoverInput"  min="1" max="70" 
+              value={70}/>
+              : 
+              <input type="range" min="1" max="100" value="0" className="slider" id="rolPeriodrecoverInput" onChange={(e)=>setUser({...user,revenueLongTail:e.target.value})} min="1" max="100" 
+              value={user.revenueLongTail ? user.revenueLongTail: "" }/>
+              }
+            <p className="text-center my-3">{user.revenueLongTail ?`${user.revenueLongTail}%`:""}</p>
             </div>
-            <div className="mt-16">
-              <button className="btn btn-main-bg-color  px-5 py-2 rounded mr-1 hover:cursor-pointer mt-5 shadow">
-                <Link href="/price-settings">Continue</Link>
-              </button>
+
+            <div className="target-market-card bg-gray-50 rounded-xl shadow p-5 grid justify-center content-center">
+              <div className="flex justify-center mb-5"><img src="/Total consumer market.png" width={60} height={60} alt="" /></div>
+              <h3 className="my-5 h-8">Total consumer market</h3>
+           {/*    <input type="range" min="1" max="100" value="0" className="slider" id="rolPeriodrecoverInput" value="0" onChange={(e)=>setUser({...user,totalConsumerMarket:e.target.value})} min="1" max="100" 
+              value={checkTotaltarget(revenueHead,revenueLongTail)} onChange={(e)=>setUser({...user,totalConsumerMarket:e.target.value})}/>
+             
+ */}
+              <progress id="file"  max="100" value={checkTotaltarget(revenueHead,revenueLongTail)} onChange={(e)=>setUser({...user,totalConsumerMarket:e.target.value})}> </progress>
+            <input type="text" className=" w-full rounded  bg-transparent py-2 text-center" value={`${checkTotaltarget(revenueHead,revenueLongTail)}%`} onChange={(e)=>setUser({...user,totalConsumerMarket:e.target.value})}/>
+            
             </div>
           </div>
+
         </section>
+
+
+       
       </Layout>
     </>
   );
