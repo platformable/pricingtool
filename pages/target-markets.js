@@ -83,7 +83,7 @@ useEffect(()=>{
               <div className="flex justify-center mb-5"><Image src="/What is the proportion of total revenues expected from LONG-TAIL-.png" width={60} height={60} lt="" /></div>
               <h3 className="my-5 h-10">What is the proportion of total revenues expected from LONG-TAIL?</h3>
               {businessModel === "Marketplace"?
-              <input type="range" min="1" max="100" value="70" className="slider" id="rolPeriodrecoverInput" 
+              <input type="range" min="1" max="100"  className="slider" id="rolPeriodrecoverInput" 
               value={70}/>
               : 
               <input type="range" min="1" max="100"  className="slider" id="rolPeriodrecoverInput" onChange={(e)=>setUser({...user,revenueLongTail:e.target.value})} 
