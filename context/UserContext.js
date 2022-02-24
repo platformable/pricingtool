@@ -25,7 +25,10 @@ export const UserContextProvider = ({children})=>{
         finalHead:null,
         finalTail:null,
         head:{},
-        tail:{}
+        tail:{},
+        selectedPriceStrategy:"",
+        selectedbusinessModel:"",
+        errorMessage:false
     })
 
     return(

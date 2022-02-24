@@ -10,7 +10,7 @@ export default function PriceSettings() {
   const [user, setUser] = useContext(UserContext);
   const [headRevenue, setHeadRevenue] = useState(null);
   const [tailRevenue, setTailRevenue] = useState(null);
-  
+
   const [head, setHead] = useState({
     head1: 0,
     head2: 0,
@@ -32,8 +32,6 @@ export default function PriceSettings() {
     revenueHead,
     revenueLongTail,
   } = user;
-
-
 
   const [primaryObjectiveList, setPrimeryObjectiveList] = useState(false);
   const [businessModelList, setBusinessModelList] = useState(false);
@@ -161,7 +159,9 @@ export default function PriceSettings() {
       pricingModel.title === "Minimum number of API consumers required per year"
     ) {
       const result1 = headRevenue;
-      const result2 = parseInt(user.pricingModel.head[0].value) * parseInt(user.pricingModel.head[1].value);
+      const result2 =
+        parseInt(user.pricingModel.head[0].value) *
+        parseInt(user.pricingModel.head[1].value);
       result = result1 / result2;
       setUser({
         ...user,
@@ -221,7 +221,9 @@ export default function PriceSettings() {
       pricingModel.title === "Minimum number of API consumers required per year"
     ) {
       const result1 = tailRevenue;
-      const result2 = parseInt(user.pricingModel.tail[0].value) * parseInt(user.pricingModel.tail[1].value);
+      const result2 =
+        parseInt(user.pricingModel.tail[0].value) *
+        parseInt(user.pricingModel.tail[1].value);
       result = result1 / result2;
       setUser({
         ...user,
@@ -237,20 +239,18 @@ export default function PriceSettings() {
     }
   };
 
-
-
   useEffect(() => {
     calculateHead();
     calculateTail();
     calculateFinalHead();
     calculateFinalTail();
     setUser({ ...user, head: head, tail: tail });
-    console.log("userhead",user.head1)
-    console.log("user",user)
-  /*   if(pricingModel.tail){
+    console.log("userhead", user.head1);
+    console.log("user", user);
+    /*   if(pricingModel.tail){
       var x = document.getElementById("tail0").defaultValue=1;
     } */
-/*     console.log(user); */
+    /*     console.log(user); */
   }, [
     head.head1,
     head.head2,
@@ -262,7 +262,6 @@ export default function PriceSettings() {
 
   return (
     <>
-   
       <Head>
         <title>API monetization tool</title>
         <link rel="icon" href="/favicon.ico" />
@@ -322,7 +321,7 @@ export default function PriceSettings() {
                 <h6>Pricing Model</h6>
               </div>
               <div>
-              <input
+                <input
                   type="text"
                   className="border w-6/12 rounded py-1 px-2 text-main-color text-xs"
                   value={user.pricingModel ? user.pricingModel.name : ""}
@@ -332,10 +331,9 @@ export default function PriceSettings() {
           </div>
         </section>
 
-
         <section>
           <div className="container mx-auto">
-          <div
+            <div
               className="form-container price-setting-box gap-5 items-center my-3 pb-3"
               id=""
             >
@@ -343,7 +341,7 @@ export default function PriceSettings() {
                 <h6>Cost Model</h6>
               </div>
               <div>
-              <input
+                <input
                   type="text"
                   className="border w-6/12 rounded py-1 px-2 text-main-color text-xs"
                   value={user.apiCostModel ? user.apiCostModel.name : ""}
@@ -353,11 +351,9 @@ export default function PriceSettings() {
           </div>
 
           <div className="container mx-auto grid md:grid-cols-2 grid-cols-1 gap-10">
-          <div className="form-container grid grid-cols-2 items-center ">
+            <div className="form-container grid grid-cols-2 items-center ">
               <div>
-                <h6 className="">
-                  Initial establishment costs ($)
-                </h6>
+                <h6 className="">Initial establishment costs ($)</h6>
               </div>
               <div>
                 <input
@@ -374,9 +370,7 @@ export default function PriceSettings() {
 
             <div className="form-container grid grid-cols-2 items-center ">
               <div>
-                <h6 className="">
-                  Annual operating costs ($)
-                </h6>
+                <h6 className="">Annual operating costs ($)</h6>
               </div>
               <div>
                 <input
@@ -390,149 +384,204 @@ export default function PriceSettings() {
                 />
               </div>
             </div>
-
           </div>
 
           <div className="container mx-auto grid md:grid-cols-3 grid-cols-1 gap-10 mt-5 price-settings-border-bottom pb-5">
-          <div className="form-container grid grid-cols-3 items-center mt-1">
-            <div>
-            <img src="/How many business units will be developing APIs this years.png" width={30} height={30} alt="" />
-            </div>
+            <div className="form-container grid grid-cols-3 items-center mt-1">
+              <div>
+                <img
+                  src="/How many business units will be developing APIs this years.png"
+                  width={30}
+                  height={30}
+                  alt=""
+                />
+              </div>
               <div>
                 <h6 className="text-sm">Buniness Units</h6>
               </div>
               <div>
-                <input type="text" className="border w-full rounded py-1 px-2 text-main-color text-xs" value={user.businessUnits}/>
-              {/*   <p className="xs-text my-2  p-2 ">{user.businessUnits}</p> */}
+                <input
+                  type="text"
+                  className="border w-full rounded py-1 px-2 text-main-color text-xs"
+                  value={user.businessUnits}
+                />
+                {/*   <p className="xs-text my-2  p-2 ">{user.businessUnits}</p> */}
               </div>
             </div>
 
             <div className="form-container grid grid-cols-3 items-center mt-1">
               <div>
-                <img src="On average, how many bundled APIs will each business unit be creating this year-.png" width={30} height={30} alt="" />
+                <img
+                  src="On average, how many bundled APIs will each business unit be creating this year-.png"
+                  width={30}
+                  height={30}
+                  alt=""
+                />
               </div>
               <div>
                 <h6 className="text-sm">Bundled APIs</h6>
               </div>
               <div>
-              <input type="text" className="border w-full rounded py-1 px-2 text-main-color text-xs" value={user.bundledApis}/>
-  {/*               <p className="xs-text my-2  p-2 ">{user.businessUnits}</p> */}
+                <input
+                  type="text"
+                  className="border w-full rounded py-1 px-2 text-main-color text-xs"
+                  value={user.bundledApis}
+                />
+                {/*               <p className="xs-text my-2  p-2 ">{user.businessUnits}</p> */}
               </div>
             </div>
 
             <div className="form-container grid grid-cols-3 items-center mt-1">
               <div>
-                <img src="/Over what Rol period (in number of years) do you want to recover stablishment costs-.png"
-                      alt=""
-                      width={30}
-                      height={30}/>
+                <img
+                  src="/Over what Rol period (in number of years) do you want to recover stablishment costs-.png"
+                  alt=""
+                  width={30}
+                  height={30}
+                />
               </div>
               <div>
                 <h6 className="text-sm">Rol Period Recover</h6>
               </div>
               <div>
-              <input type="text" className="border w-full rounded py-1 px-2 text-main-color text-xs" value={user.rolPeriodRecover}/>
-        {/*         <p className="xs-text my-2  p-2 ">{user.rolPeriodRecover}</p> */}
+                <input
+                  type="text"
+                  className="border w-full rounded py-1 px-2 text-main-color text-xs"
+                  value={user.rolPeriodRecover}
+                />
+                {/*         <p className="xs-text my-2  p-2 ">{user.rolPeriodRecover}</p> */}
               </div>
             </div>
           </div>
-        </section> 
-
+        </section>
 
         <section className="price-settings-target-market my-5">
           <div className="container mx-auto price-settings-border-bottom">
             <h6>Target Market</h6>
-          
-          <div className="price-settings-target-market-container flex justify-center">
-           <div className="w-8/12 p-10  grid md:grid-cols-2 grid-cols-1 gap-10">
-           <div className="flex gap-5 justify-between items-center">
-             <div>
-             <img src="/What is the proportion of total revenues expected from HEAD-.png" width={60} height={60} alt="" />
-             </div>
-              <div>
-                <h5 className="">Head</h5>
-              </div>
-              <div>
-                <input type="text" className="border rounded py-1 px-2 text-main-color text-xs"
-                 value= {`${user.revenueHead.toLocaleString(undefined, {minimumFractionDigits: 2,maximumFractionDigits: 2})}%`}
-                />
+
+            <div className="price-settings-target-market-container flex justify-center">
+              <div className="w-8/12 p-10  grid md:grid-cols-2 grid-cols-1 gap-10">
+                <div className="flex gap-5 justify-between items-center">
+                  <div>
+                    <img
+                      src="/What is the proportion of total revenues expected from HEAD-.png"
+                      width={60}
+                      height={60}
+                      alt=""
+                    />
+                  </div>
+                  <div>
+                    <h5 className="">Head</h5>
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      className="border rounded py-1 px-2 text-main-color text-xs"
+                      value={`${user.revenueHead.toLocaleString(undefined, {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                      })}%`}
+                    />
+                  </div>
+                </div>
+                <div className="form-container grid grid-cols-3 items-center ">
+                  <div>
+                    <Image
+                      src="/What is the proportion of total revenues expected from LONG-TAIL-.png"
+                      width={60}
+                      height={60}
+                      lt=""
+                    />
+                  </div>
+                  <div>
+                    <h5 className="">Tail</h5>
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      className="border rounded py-1 px-2 text-main-color text-xs"
+                      value={`${user.revenueLongTail.toLocaleString(undefined, {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                      })}%`}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="form-container grid grid-cols-3 items-center ">
-              <div>
-              <Image src="/What is the proportion of total revenues expected from LONG-TAIL-.png" width={60} height={60} lt="" />
-              </div>
-              <div>
-                <h5 className="">Tail</h5>
-              </div>
-              <div>
-              <input type="text" className="border rounded py-1 px-2 text-main-color text-xs"
-                 value= {`${user.revenueLongTail.toLocaleString(undefined, {
-                  minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
-                })}%`}
-                />
-              </div>
-            </div>
-           </div>
-          </div>
           </div>
         </section>
 
         <section>
-        <div className="container mx-auto ">
-           <h3 className="mt-10 text-main-color">
-                Given your choices, the annual break-even revenues required from
-                each API for each target market segment is calculated to be:
-                (that is, (establishment costs + operating costs)*% share of
-                each target market segment)
-              </h3>
+          <div className="container mx-auto ">
+            <h3 className="mt-10 text-main-color">
+              Given your choices, the annual break-even revenues required from
+              each API for each target market segment is calculated to be: (that
+              is, (establishment costs + operating costs)*% share of each target
+              market segment)
+            </h3>
 
-          <div className="price-settings-target-market-container flex justify-center">
-           <div className="w-8/12 p-16  grid md:grid-cols-2 grid-cols-1 gap-10">
-           <div className="form-container flex gap-5 justify-between items-center">
-             <div>
-             <img src="/What is the proportion of total revenues expected from HEAD-.png" width={60} height={60} alt="" />
-             </div>
-              <div>
-                <h5 className="">Head</h5>
-              </div>
-              <div>
-                {console.log(headRevenue)}
-                <input type="text" className="border rounded py-1 px-2 text-main-color text-xs"
-                 value={`$${headRevenue
-                   ? headRevenue.toLocaleString(undefined, {
-                       minimumFractionDigits: 2,
-                       maximumFractionDigits: 2,
-                     })
-                   : ""}`}
-                />
+            <div className="price-settings-target-market-container flex justify-center">
+              <div className="w-8/12 p-16  grid md:grid-cols-2 grid-cols-1 gap-10">
+                <div className="form-container flex gap-5 justify-between items-center">
+                  <div>
+                    <img
+                      src="/What is the proportion of total revenues expected from HEAD-.png"
+                      width={60}
+                      height={60}
+                      alt=""
+                    />
+                  </div>
+                  <div>
+                    <h5 className="">Head</h5>
+                  </div>
+                  <div>
+                    {console.log(headRevenue)}
+                    <input
+                      type="text"
+                      className="border rounded py-1 px-2 text-main-color text-xs"
+                      value={`$${
+                        headRevenue
+                          ? headRevenue.toLocaleString(undefined, {
+                              minimumFractionDigits: 2,
+                              maximumFractionDigits: 2,
+                            })
+                          : ""
+                      }`}
+                    />
+                  </div>
+                </div>
+                <div className=" flex gap-5 justify-between items-center">
+                  <div>
+                    <Image
+                      src="/What is the proportion of total revenues expected from LONG-TAIL-.png"
+                      width={60}
+                      height={60}
+                      lt=""
+                    />
+                  </div>
+                  <div>
+                    <h5 className="">Tail</h5>
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      className="border rounded py-1 px-2 text-main-color text-xs"
+                      value={`$ ${
+                        tailRevenue
+                          ? tailRevenue.toLocaleString(undefined, {
+                              minimumFractionDigits: 2,
+                              maximumFractionDigits: 2,
+                            })
+                          : ""
+                      }`}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
-            <div className=" flex gap-5 justify-between items-center">
-              <div>
-              <Image src="/What is the proportion of total revenues expected from LONG-TAIL-.png" width={60} height={60} lt="" />
-              </div>
-              <div>
-                <h5 className="">Tail</h5>
-              </div>
-              <div>
-              <input type="text" className="border rounded py-1 px-2 text-main-color text-xs"
-                 value= {`$ ${tailRevenue
-                  ? tailRevenue.toLocaleString(undefined, {
-                      minimumFractionDigits: 2,
-                      maximumFractionDigits: 2,
-                    })
-                  : ""}`}
-                />
-              </div>
-            </div>
-           </div>
-          </div>
           </div>
         </section>
-
-       
 
         <section>
           <div className="container mx-auto bg-white p-5 border rounded">
@@ -547,7 +596,6 @@ export default function PriceSettings() {
                       type="range"
                       min="1"
                       max="1000"
-                      
                       className={`slider `}
                       onChange={(e) => handleDynamicHead(e, index)}
                       /* onKeyUp={(e) => handleDynamicHead(e, index)} */
@@ -562,14 +610,13 @@ export default function PriceSettings() {
 
               <div className="">
                 <h3 className="opacity-0">Total</h3>
-              <input
-                type="text"
-                className="border w-full  text-center rounded"
-                value={user.finalHead && user.finalHead}
-              />
+                <input
+                  type="text"
+                  className="border w-full  text-center rounded"
+                  value={user.finalHead && user.finalHead}
+                />
               </div>
             </div>
-
 
             {pricingModel?.tail ? (
               <>
@@ -598,14 +645,14 @@ export default function PriceSettings() {
                       </>
                     );
                   })}
-                 <div className="">
-                <h3 className="opacity-0">Total</h3>
-              <input
-                type="text"
-                className="border w-full  text-center rounded"
-                value={user.finalTail&& user.finalTail}
-              />
-              </div>
+                  <div className="">
+                    <h3 className="opacity-0">Total</h3>
+                    <input
+                      type="text"
+                      className="border w-full  text-center rounded"
+                      value={user.finalTail && user.finalTail}
+                    />
+                  </div>
                 </div>
               </>
             ) : (

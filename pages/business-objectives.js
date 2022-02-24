@@ -7,12 +7,12 @@ import Link from "next/link";
 import Head from "next/head";
 
 import { businessModels } from "../utils/businessModels";
+import { WarningMessage } from "../components/WarningMessage";
 
 export default function BusinessObjectives() {
   const router = useRouter();
   const [user, setUser] = useContext(UserContext);
-  const { primaryObjective, businessModel, apiProductName, apiDescription } =
-    user;
+  const { primaryObjective, businessModel, apiProductName, apiDescription } = user;
 
   const [primaryObjectiveList, setPrimeryObjectiveList] = useState(false);
   const [businessModelList, setBusinessModelList] = useState(false);
@@ -22,7 +22,7 @@ export default function BusinessObjectives() {
 
     const check = selectedCard.filter(card=>card.name===item.name)
     if(check.length===0){
-      setUser({...user,pricingModel:item})
+      setUser({...user,pricingModel:item,selectedBusinessModel:item.name})
     setSelectedCard([item])
     } else{
       setSelectedCard([])
@@ -32,11 +32,16 @@ export default function BusinessObjectives() {
 
 
   const checkSelectedCard = (item)=>{
-    const check = selectedCard?.filter(card=>card?.name===item?.name)
+  /*   const check = user.selectedBusinessModel?.filter(card=>card?.name===item?.name)
     if(check.length===0){
       return false
     }else {
       return true
+    } */
+    if(user.selectedBusinessModel===item.name) {
+      return true
+    } else {
+      return false
     }
   }
 
@@ -51,6 +56,10 @@ export default function BusinessObjectives() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
+       {user.errorMessage && <section id="warning-message">
+          <WarningMessage />
+        </section>
+       }
         <section id="businessObjectives" className="">
           <div className="container mx-auto my-5">
             <p className="text-xs mb-1">Step 01</p>

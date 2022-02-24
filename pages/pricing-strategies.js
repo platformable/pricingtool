@@ -17,29 +17,38 @@ export default function PricingStrategies() {
   const [businessModelList, setBusinessModelList] = useState(false);
 
  
-console.log("user",user)
+
   
   
 
   const handleSelectedCard = (item )=>{
 
-    const check = selectedCard.filter(card=>card.name===item.name)
+    setUser({...user,pricingModel:item,selectedPriceStrategy:item?.name})
+
+    /* const check = selectedCard.filter(card=>card.name===item.name)
     if(check.length===0){
       setUser({...user,pricingModel:item})
     setSelectedCard([item])
     } else{
       setSelectedCard([])
-    }
+    } */
 
   }
 
 
   const checkSelectedCard = (item)=>{
+    /* console.log("loaded")
+    console.log("item: ", item)
     const check = selectedCard?.filter(card=>card?.name===item?.name)
     if(check.length===0){
       return false
     }else {
       return true
+    } */
+    if(user.selectedPriceStrategy===item?.name) {
+      return true
+    } else {
+      return false
     }
   }
 

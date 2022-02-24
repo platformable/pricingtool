@@ -1,10 +1,39 @@
-import React from "react";
+import React, { useState, useContext,useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
+import { UserContext } from "../context/UserContext";
+
 export default function Header() {
   const router = useRouter();
+  const [user, setUser] = useContext(UserContext);
+  const { apiProductName, apiDescription, primaryObjective, businessModels } =
+    user;
+  const [errorMessage, setErrorMessage] = useState(false);
+
+  const removeErrorMessage = ()=> {
+    setUser({...user,errorMessage:false});
+  }
+
+  const handleNextStep = (route) => {
+    if (
+      apiProductName === "" ||
+      apiDescription === "" ||
+      primaryObjective === "" ||
+      businessModels === ""
+    ) {
+      setUser({...user,errorMessage:!errorMessage});
+      setTimeout(() => {removeErrorMessage()}, 3000);
+    } else {
+
+      router.push(route);
+    }
+  };
+
+  useEffect(()=>{
+    console.log("user.errorMessage: ", user.errorMessage)
+  },[user.errorMessage])
 
   return (
     <section className="bg-blue head-navigation-container py-5">
@@ -70,15 +99,19 @@ export default function Header() {
 
             <div className="main-header-box hover:cursor-pointer">
               <div class="arrow-header"></div>
-              <Link href="/cost-structure" className="">
-                <div className={`header-box ${
-                    (router.asPath === "/cost-structure" &&
-                      "active-nav") ||
-                    (router.asPath === "/target-markets" && "active-nav")
-                    || (router.asPath === "/pricing-strategies" && "active-nav")
-                    || (router.asPath === "/price-settings" && "active-nav")
-                    || (router.asPath === "/results" && "active-nav")
-                  }`}>
+              <div
+                className=""
+                onClick={() => handleNextStep("/cost-structure")}
+              >
+                <div
+                  className={`header-box ${
+                    (router.asPath === "/cost-structure" && "active-nav") ||
+                    (router.asPath === "/target-markets" && "active-nav") ||
+                    (router.asPath === "/pricing-strategies" && "active-nav") ||
+                    (router.asPath === "/price-settings" && "active-nav") ||
+                    (router.asPath === "/results" && "active-nav")
+                  }`}
+                >
                   <div className="header-icon">
                     <Image
                       src="/Cost Structure off.png"
@@ -96,19 +129,20 @@ export default function Header() {
                     </p>
                   </div>
                 </div>
-              </Link>
+              </div>
             </div>
 
             <div className="main-header-box hover:cursor-pointer">
               <div class="arrow-header"></div>
               <Link href="/target-markets" className="">
-                <div className={`header-box ${
-                    (router.asPath === "/target-markets" &&
-                      "active-nav") ||
-                    (router.asPath === "/pricing-strategies" && "active-nav")
-                    || (router.asPath === "/price-settings" && "active-nav")
-                    || (router.asPath === "/results" && "active-nav")
-                  }`}>
+                <div
+                  className={`header-box ${
+                    (router.asPath === "/target-markets" && "active-nav") ||
+                    (router.asPath === "/pricing-strategies" && "active-nav") ||
+                    (router.asPath === "/price-settings" && "active-nav") ||
+                    (router.asPath === "/results" && "active-nav")
+                  }`}
+                >
                   <div className="header-icon">
                     <Image
                       src="/Target Market off.png"
@@ -132,13 +166,13 @@ export default function Header() {
             <div className="main-header-box hover:cursor-pointer">
               <div class="arrow-header"></div>
               <Link href="/pricing-strategies" className="hover:cursor-pointer">
-                <div className={`header-box ${
-                    (router.asPath === "/pricing-strategies" &&
-                      "active-nav") ||
-                    (router.asPath === "/price-settings" && "active-nav")
-                    ||
+                <div
+                  className={`header-box ${
+                    (router.asPath === "/pricing-strategies" && "active-nav") ||
+                    (router.asPath === "/price-settings" && "active-nav") ||
                     (router.asPath === "/results" && "active-nav")
-                  }`}>
+                  }`}
+                >
                   <div className="header-icon">
                     <Image
                       src="/Pricing Strategies off.png"
@@ -164,11 +198,12 @@ export default function Header() {
             <div className="main-header-box hover:cursor-pointer">
               <div class="arrow-header"></div>
               <Link href="/price-settings">
-                <div className={`header-box ${
-                    (router.asPath === "/price-settings" &&
-                      "active-nav") ||
+                <div
+                  className={`header-box ${
+                    (router.asPath === "/price-settings" && "active-nav") ||
                     (router.asPath === "/results" && "active-nav")
-                  }`}>
+                  }`}
+                >
                   <div className="header-icon">
                     <Image
                       src="/Target Market off.png"
@@ -192,21 +227,24 @@ export default function Header() {
             <div className="main-header-box hover:cursor-pointer">
               <div class="arrow-header"></div>
               <Link href="/results">
-              <div className={`header-box text-center ${
-                    (router.asPath === "/results" && "active-nav")}`}>
-                <h3 className="font-black text-sm mb-1 ">
-                  {" "}
-                  Review & Download{" "}
-                </h3>
-                <div className="header-icon">
-                  <Image
-                    src="/final pdf miniature off.png"
-                    alt=""
-                    width={60}
-                    height={90}
-                  />
+                <div
+                  className={`header-box text-center ${
+                    router.asPath === "/results" && "active-nav"
+                  }`}
+                >
+                  <h3 className="font-black text-sm mb-1 ">
+                    {" "}
+                    Review & Download{" "}
+                  </h3>
+                  <div className="header-icon">
+                    <Image
+                      src="/final pdf miniature off.png"
+                      alt=""
+                      width={60}
+                      height={90}
+                    />
+                  </div>
                 </div>
-              </div>
               </Link>
             </div>
 

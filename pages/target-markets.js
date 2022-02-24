@@ -76,7 +76,7 @@ useEffect(()=>{
               <input type="range" min="1" max="100" value="0" className="slider" id="rolPeriodrecoverInput" onChange={(e)=>setUser({...user,revenueHead:e.target.value})} min="1" max="100" 
               value={user.revenueHead ? user.revenueHead: "" }/>
               }
-            <p className="text-center my-3">{user.revenueHead ?`${user.revenueHead}%`:""}</p>
+            <p className="text-center my-3">{user.revenueHead ?`${user.revenueHead}%`:"0"}</p>
             </div>
 
             <div className="target-market-card bg-gray-50 rounded-xl shadow p-5 grid justify-center content-center">
@@ -89,7 +89,7 @@ useEffect(()=>{
               <input type="range" min="1" max="100" value="0" className="slider" id="rolPeriodrecoverInput" onChange={(e)=>setUser({...user,revenueLongTail:e.target.value})} min="1" max="100" 
               value={user.revenueLongTail ? user.revenueLongTail: "" }/>
               }
-            <p className="text-center my-3">{user.revenueLongTail ?`${user.revenueLongTail}%`:""}</p>
+            <p className="text-center my-3">{user.revenueLongTail ?`${user.revenueLongTail}%`:"0"}</p>
             </div>
 
             <div className="target-market-card bg-gray-50 rounded-xl shadow p-5 grid justify-center content-center">

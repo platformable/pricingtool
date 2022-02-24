@@ -247,9 +247,36 @@ progress::-webkit-progress-value {
   grid-template-columns: 200px 2fr;
   }
 
+
+.price-setting-box-md {
+display:grid;
+grid-template-columns: 400px 2fr;
+}
+
+.grid-cols-head-tail {
+  grid-template-columns:60px 40px 2fr;
+}
+
 #price-settings-business-model {
   border-bottom:1px solid #fbdace;
 }
 .price-settings-border-bottom {
   border-bottom:1px solid #fbdace;
 }
+
+
+/* RESULTS PAGE */
+
+.dashes {
+  border-bottom:1px dashed black;
+  position:relative;
+  top:-10px;
+  z-index:0;
+  
+  }
+
+  .results-page-section-title {
+  z-index:10;
+  position:relative;
+  padding:0 10px 0 0;
+  }

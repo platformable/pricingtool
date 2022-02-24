@@ -146,10 +146,7 @@ export default function CostStructure() {
                         <input
                           type="text"
                           className="px-4 border rounded self-auto text-sm py-2 cost-structure-input"
-                          value={apiCostModel ? apiCostModel?.cost.toLocaleString(undefined, {
-                            minimumFractionDigits: 2,
-                            maximumFractionDigits: 2,
-                          }) : ""}
+                          value={apiCostModel ? apiCostModel?.cost: ""}
                         />
                       )}
                     </div>
