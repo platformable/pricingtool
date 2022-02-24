@@ -208,7 +208,7 @@ export default function CostStructure() {
                     type="range"
                     min="1"
                     max="100"
-                    value="0"
+
                     className="slider"
                     id="rolPeriodrecoverInput"
                     onChange={(e) => {
@@ -238,7 +238,6 @@ export default function CostStructure() {
                     type="range"
                     min="1"
                     max="100"
-                    value="0"
                     className="slider"
                     id="businessUnitsInput"
                     onChange={(e) => {
@@ -268,7 +267,6 @@ export default function CostStructure() {
                     type="range"
                     min="1"
                     max="100"
-                    value="0"
                     className="slider"
                     id="bundledApis"
                     onChange={(e) => {

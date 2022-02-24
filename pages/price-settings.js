@@ -536,7 +536,7 @@ export default function PriceSettings() {
                     <h5 className="">Head</h5>
                   </div>
                   <div>
-                    {console.log(headRevenue)}
+          
                     <input
                       type="text"
                       className="border rounded py-1 px-2 text-main-color text-xs"
@@ -601,7 +601,7 @@ export default function PriceSettings() {
                       /* onKeyUp={(e) => handleDynamicHead(e, index)} */
                     />
                     <p className="text-center my-3 h-8">
-                      {head ? head[`head${index + 1}`] : "0"}
+                      {head ? head[`head${index + 1}`] : head[`head${index + 1}`]}
                     </p>
                     {/*  <input type="number"  className="border my-2 text-center" onChange={(e)=>handleDynamicHead(e,index)} onKeyUp={(e)=>handleDynamicHead(e,index)}/>        */}
                   </div>

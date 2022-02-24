@@ -54,6 +54,7 @@ export default function Header() {
                 href="https://www.platformable.com/"
                 target="_blank"
                 className="font-black"
+                rel="noreferrer"
               >
                 www.platformable.com
               </a>
@@ -66,7 +67,7 @@ export default function Header() {
         {router.asPath !== "/" && (
           <div className="grid md:grid-cols-7 grid-cols-1 gap-5 md:px-0 px-5 main-header">
             <div className="main-header-box hover:cursor-pointer">
-              <div class="arrow-1"></div>
+              <div className="arrow-1"></div>
               <Link href="/business-objectives" className="">
                 <div
                   className={`header-box ${
@@ -98,7 +99,7 @@ export default function Header() {
             </div>
 
             <div className="main-header-box hover:cursor-pointer">
-              <div class="arrow-header"></div>
+              <div className="arrow-header"></div>
               <div
                 className=""
                 onClick={() => handleNextStep("/cost-structure")}
@@ -133,7 +134,7 @@ export default function Header() {
             </div>
 
             <div className="main-header-box hover:cursor-pointer">
-              <div class="arrow-header"></div>
+              <div className="arrow-header"></div>
               <Link href="/target-markets" className="">
                 <div
                   className={`header-box ${
@@ -164,7 +165,7 @@ export default function Header() {
             </div>
 
             <div className="main-header-box hover:cursor-pointer">
-              <div class="arrow-header"></div>
+              <div className="arrow-header"></div>
               <Link href="/pricing-strategies" className="hover:cursor-pointer">
                 <div
                   className={`header-box ${
@@ -196,7 +197,7 @@ export default function Header() {
             </div>
 
             <div className="main-header-box hover:cursor-pointer">
-              <div class="arrow-header"></div>
+              <div className="arrow-header"></div>
               <Link href="/price-settings">
                 <div
                   className={`header-box ${
@@ -225,7 +226,7 @@ export default function Header() {
             </div>
 
             <div className="main-header-box hover:cursor-pointer">
-              <div class="arrow-header"></div>
+              <div className="arrow-header"></div>
               <Link href="/results">
                 <div
                   className={`header-box text-center ${
@@ -263,6 +264,7 @@ export default function Header() {
                     href="https://www.platformable.com/"
                     target="_blank"
                     className="font-black text-center flex justify-center"
+                    rel="noreferrer"
                   >
                     www.platformable.com
                   </a>

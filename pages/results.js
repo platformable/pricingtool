@@ -556,7 +556,7 @@ export default function Results() {
                   <div className="target-market-segment">
                     {user.pricingModel?.head?.map((model, index) => {
                       return (
-                        <div className="grid grid-cols-2">
+                        <div className="grid grid-cols-2" key={index}>
                           <div className="headLeft">
                             <p>{model.name}:</p>
                           </div>
@@ -585,7 +585,7 @@ export default function Results() {
                   <div className="target-market-segment ">
                     {user.pricingModel?.tail?.map((model, index) => {
                       return (
-                        <div className="grid grid-cols-2">
+                        <div className="grid grid-cols-2" key={index}>
                           <div className="headLeft">
                             <p>{model.name}:</p>
                           </div>

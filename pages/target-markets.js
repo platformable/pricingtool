@@ -69,11 +69,11 @@ useEffect(()=>{
               <div className="flex justify-center mb-5"><img src="/What is the proportion of total revenues expected from HEAD-.png" width={60} height={60} alt="" /></div>
               <h3 className="my-5 h-10">What is the proportion of total revenues expected from HEAD?</h3>
               
-              {businessModel === "Distribution"?
-              <input type="range" min="1" max="100" value="70" className="slider" id="rolPeriodrecoverInput"  min="1" max="70" 
+              {businessModel === "Marketplace"?
+              <input type="range" min="1" max="100"  className="slider" id="rolPeriodrecoverInput" 
               value={70}/>
               : 
-              <input type="range" min="1" max="100" value="0" className="slider" id="rolPeriodrecoverInput" onChange={(e)=>setUser({...user,revenueHead:e.target.value})} min="1" max="100" 
+              <input type="range" min="1" max="100"  className="slider" id="rolPeriodrecoverInput" onChange={(e)=>setUser({...user,revenueHead:e.target.value})} 
               value={user.revenueHead ? user.revenueHead: "" }/>
               }
             <p className="text-center my-3">{user.revenueHead ?`${user.revenueHead}%`:"0"}</p>
@@ -82,11 +82,11 @@ useEffect(()=>{
             <div className="target-market-card bg-gray-50 rounded-xl shadow p-5 grid justify-center content-center">
               <div className="flex justify-center mb-5"><Image src="/What is the proportion of total revenues expected from LONG-TAIL-.png" width={60} height={60} lt="" /></div>
               <h3 className="my-5 h-10">What is the proportion of total revenues expected from LONG-TAIL?</h3>
-              {businessModel === "Distribution"?
-              <input type="range" min="1" max="100" value="70" className="slider" id="rolPeriodrecoverInput"  min="1" max="70" 
+              {businessModel === "Marketplace"?
+              <input type="range" min="1" max="100" value="70" className="slider" id="rolPeriodrecoverInput" 
               value={70}/>
               : 
-              <input type="range" min="1" max="100" value="0" className="slider" id="rolPeriodrecoverInput" onChange={(e)=>setUser({...user,revenueLongTail:e.target.value})} min="1" max="100" 
+              <input type="range" min="1" max="100"  className="slider" id="rolPeriodrecoverInput" onChange={(e)=>setUser({...user,revenueLongTail:e.target.value})} 
               value={user.revenueLongTail ? user.revenueLongTail: "" }/>
               }
             <p className="text-center my-3">{user.revenueLongTail ?`${user.revenueLongTail}%`:"0"}</p>
