@@ -59,12 +59,16 @@ export default function Results() {
 
   const establishmentCostsForEachBusinessUnit =
     user.apiCostModel.cost / user.businessUnits;
+
   const establishmentCostsForEachAPIFromEachBusinessUnit =
     establishmentCostsForEachBusinessUnit / user.bundledApis;
+
   const establishmentCostsForEachAPIIncurred =
     establishmentCostsForEachAPIFromEachBusinessUnit / user.rolPeriodRecover;
+
   const annualOperatingCostForEachAPIBusinessUnit =
     user.apiCostModel.costYear / user.businessUnits;
+    
   const annualOperatingCostForEachAPIFromEachBusinessUnit =
     annualOperatingCostForEachAPIBusinessUnit / user.bundledApis;
 
@@ -506,14 +510,13 @@ export default function Results() {
 
                 <h5 className="">Head</h5>
                 <input
-                      type="text"
-                      className="border w-4/12 rounded py-1 px-2 text-main-color text-xs"
-                      value={`${user.revenueHead.toLocaleString(undefined, {
-                        minimumFractionDigits: 2,
-                        maximumFractionDigits: 2,
-                      })} %`}
-                    />
-    
+                  type="text"
+                  className="border w-4/12 rounded py-1 px-2 text-main-color text-xs"
+                  value={`${user.revenueHead.toLocaleString(undefined, {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })} %`}
+                />
               </div>
             </div>
             <div className="form-container grid grid-cols-2 flex items-center ">
@@ -534,17 +537,15 @@ export default function Results() {
 
                 <h5 className="">Tail</h5>
                 <input
-                      type="text"
-                      className="border w-4/12 rounded py-1 px-2 text-main-color text-xs"
-                      value={`${user.revenueLongTail.toLocaleString(undefined, {
-                        minimumFractionDigits: 2,
-                        maximumFractionDigits: 2,
-                      })} %`}
-                    />
-    
+                  type="text"
+                  className="border w-4/12 rounded py-1 px-2 text-main-color text-xs"
+                  value={`${user.revenueLongTail.toLocaleString(undefined, {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })} %`}
+                />
               </div>
             </div>
-
 
             <section>
               <div className="container mx-auto my-10">
@@ -574,14 +575,13 @@ export default function Results() {
                 </div>
               </div>
             </section>
-
+         {user.tail.tail1 ? 
             <section>
               <div className="container mx-auto my-10">
                 <div className="grid md:grid-cols-3 grid-cols-1">
                   <div className="target-market-segment text-right">
                     <h3 className="mr-10">TAIL</h3>
                   </div>
-
                   <div className="target-market-segment ">
                     {user.pricingModel?.tail?.map((model, index) => {
                       return (
@@ -596,7 +596,6 @@ export default function Results() {
                       );
                     })}
                   </div>
-
                   <div className="target-market-segment ">
                     <div className="headLeft">
                       <p className="font-black">{user.finalTail} $</p>
@@ -605,10 +604,10 @@ export default function Results() {
                 </div>
               </div>
             </section>
+            : ""}
+
           </div>
         </section>
-
-   
       </Layout>
     </>
   );

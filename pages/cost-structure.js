@@ -281,11 +281,11 @@ export default function CostStructure() {
               </div>
             </section>
 
-            <div className="mt-16">
+          {/*   <div className="mt-16">
               <button className="btn btn-main-bg-color  px-5 py-2 rounded mr-1 hover:cursor-pointer mt-5 shadow">
                 <Link href="/pricing-strategies">Continue</Link>
               </button>
-            </div>
+            </div> */}
           </div>
         </section>
       </Layout>

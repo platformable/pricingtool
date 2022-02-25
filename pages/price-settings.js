@@ -31,6 +31,7 @@ export default function PriceSettings() {
     rolPeriodRecover,
     revenueHead,
     revenueLongTail,
+    businessModel
   } = user;
 
   const [primaryObjectiveList, setPrimeryObjectiveList] = useState(false);
@@ -40,6 +41,26 @@ export default function PriceSettings() {
   parseInt(businessUnits);
   parseInt(bundledApis);
   parseInt(rolPeriodRecover); */
+
+  const establishmentCostsForEachBusinessUnit =
+    user.apiCostModel.cost / user.businessUnits;
+
+  const establishmentCostsForEachAPIFromEachBusinessUnit =
+    establishmentCostsForEachBusinessUnit / user.bundledApis;
+
+  const establishmentCostsForEachAPIIncurred =
+    establishmentCostsForEachAPIFromEachBusinessUnit / user.rolPeriodRecover;
+
+  const annualOperatingCostForEachAPIBusinessUnit =
+    user.apiCostModel.costYear / user.businessUnits;
+    
+  const annualOperatingCostForEachAPIFromEachBusinessUnit =
+    annualOperatingCostForEachAPIBusinessUnit / user.bundledApis;
+
+  const breakevenRevenue =
+    annualOperatingCostForEachAPIFromEachBusinessUnit +
+    establishmentCostsForEachAPIIncurred;
+  
 
   const calculateHead = () => {
     const result1 =
@@ -114,12 +135,75 @@ export default function PriceSettings() {
   const calculateFinalHead = () => {
     let result = 0;
 
-    if (
+    if (businessModel?.name !=="Marketplace" &&
       pricingModel.title ===
-        "Minimum number of transactions required per year" ||
+        "Minimum number of transactions required per year" || businessModel?.name !=="Marketplace" &&
       pricingModel.title === "Minimum number of clicks required per year"
     ) {
+      console.log(" if 0")
       result = headRevenue / parseInt(user.pricingModel.head[0].value);
+      setUser({
+        ...user,
+        finalHead: result.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        }),
+      });
+      return result.toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      });
+    }
+
+    if (businessModel?.name === "Marketplace" &&
+      pricingModel.title ===
+        "Minimum number of transactions required per year" 
+    ) {
+
+
+      result = breakevenRevenue / parseInt(user.pricingModel.head[0].value);
+      setUser({
+        ...user,
+        finalHead: result.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        }),
+      });
+      return result.toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      });
+    }
+
+    if (businessModel?.name === "Marketplace" &&
+    pricingModel.title === "Minimum number of clicks required per year"
+    ) {
+   
+
+      result = breakevenRevenue / parseInt(user.pricingModel.head[0].value);
+      setUser({
+        ...user,
+        finalHead: result.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        }),
+      });
+      return result.toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      });
+    }
+
+    if (businessModel?.name === "Marketplace" &&
+      pricingModel.title === "Minimum transaction volume required per year ($)"
+    ) {
+
+      
+      const result1 = (breakevenRevenue / parseInt(user.pricingModel.head[0].value))*100;
+      const result2 = result1.toLocaleString(undefined, {
+        maximumFractionDigits: 2,
+      });
+      result = result2;
       setUser({
         ...user,
         finalHead: result.toLocaleString(undefined, {
@@ -136,6 +220,7 @@ export default function PriceSettings() {
     if (
       pricingModel.title === "Minimum transaction volume required per year ($)"
     ) {
+
       const result1 = headRevenue * 100;
       const result2 = result1 / parseInt(user.pricingModel.head[0].value);
       const result3 = result2.toLocaleString(undefined, {
@@ -158,6 +243,7 @@ export default function PriceSettings() {
     if (
       pricingModel.title === "Minimum number of API consumers required per year"
     ) {
+      console.log(" if 4")
       const result1 = headRevenue;
       const result2 =
         parseInt(user.pricingModel.head[0].value) *
@@ -179,7 +265,9 @@ export default function PriceSettings() {
 
   const calculateFinalTail = () => {
     let result = 0;
+                                               //   Minimum number of transactions required per year
 
+if(user.pricingModel.tail){
     if (
       pricingModel.title ===
         `Minimum number of transactions requiered per year` ||
@@ -237,6 +325,10 @@ export default function PriceSettings() {
         maximumFractionDigits: 2,
       });
     }
+
+
+
+  }
   };
 
   useEffect(() => {
@@ -245,8 +337,10 @@ export default function PriceSettings() {
     calculateFinalHead();
     calculateFinalTail();
     setUser({ ...user, head: head, tail: tail });
-    console.log("userhead", user.head1);
+/*     console.log("userhead", breakevenRevenue/user.head.head1);
     console.log("user", user);
+    console.log("breakevenRevenue: ",breakevenRevenue)
+    console.log("BusinessModel", businessModel) */
     /*   if(pricingModel.tail){
       var x = document.getElementById("tail0").defaultValue=1;
     } */
@@ -591,11 +685,11 @@ export default function PriceSettings() {
               {pricingModel.head?.map((model, index) => {
                 return (
                   <div className="" key={index}>
-                    <p>{model.name}</p>
+                    <p className="text-sm">{model.name}</p>
                     <input
                       type="range"
                       min="1"
-                      max="1000"
+                      max="600"
                       className={`slider `}
                       onChange={(e) => handleDynamicHead(e, index)}
                       /* onKeyUp={(e) => handleDynamicHead(e, index)} */
@@ -607,6 +701,8 @@ export default function PriceSettings() {
                   </div>
                 );
               })}
+
+
 
               <div className="">
                 <h3 className="opacity-0">Total</h3>
@@ -625,11 +721,11 @@ export default function PriceSettings() {
                     return (
                       <>
                         <div className="" key={index}>
-                          <p>{model.name}</p>
+                          <p className="text-sm">{model.name}</p>
                           <input
                             type="range"
                             min="1"
-                            max="1000"
+                            max="600"
                             id={`tail${index}`}
                             className={`slider rounded`}
                             onChange={(e) => handleDynamicTail(e, index)}
@@ -661,15 +757,7 @@ export default function PriceSettings() {
           </div>
         </section>
 
-        <section>
-          <div className="my-16 container mx-auto">
-            <Link href="/results">
-              <button className="btn btn-main-bg-color  px-5 py-2 rounded mr-1 hover:cursor-pointer mt-5 shadow">
-                Continue
-              </button>
-            </Link>
-          </div>
-        </section>
+ {/* s */}
       </Layout>
     </>
   );

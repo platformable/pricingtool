@@ -112,7 +112,7 @@ export const businessModels = [
             "description":"Developer/API consumer gets paid upon a specific end user action, for instance a purchase of a product (customer acquisition), or when an end user shares their contact details (lead generation)",
             "head":[
              { "name":"Flat fee per action ($)",
-             "value":null  }
+               "value":null  }
             ]
           },
           {
@@ -122,7 +122,7 @@ export const businessModels = [
             "description":"Developer/API consumer gets paid when the end user clicks on a specific link",
             "head":[
               { "name":"Flat fee per click ($)",
-              "value":null  }
+                "value":null  }
              ]
 
           },
@@ -133,7 +133,7 @@ export const businessModels = [
             "description":"Developer/API consumer gets paid when an end customer referred on to API provider logs in or registers through the API",
             "head":[
               { "name":"Flat fee per click ($)",
-              "value":null  }
+                "value":null  }
              ]
           },
           {
@@ -143,7 +143,7 @@ export const businessModels = [
             "description":"Developer/API consumer gets paid a share of the overall transaction volume of a sale or transaction",
             "head":[
               { "name":"Commission rate as % of transaction volume:",
-              "value":null  }
+                 "value":null  }
              ]
           }
         ],

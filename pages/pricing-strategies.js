@@ -58,6 +58,9 @@ export default function PricingStrategies() {
   },[])
   
 
+  console.log("selectectPriceStrat: ",user.selectedPriceStrategy)
+  console.log("pricing Model: ",user.pricingModel)
+
   return (
     <>
     <Head>
@@ -118,12 +121,12 @@ export default function PricingStrategies() {
            
 
             
-
+{/* 
             <div className="mt-16 container mx-auto">
               <button className="btn btn-main-bg-color  px-5 py-2 rounded mr-1 hover:cursor-pointer mt-5 shadow">
                 <Link href="/target-markets">Continue</Link>
               </button>
-            </div>
+            </div> */}
    
         </section>
       </Layout>

@@ -21,13 +21,14 @@ export const UserContextProvider = ({children})=>{
         revenueLongTail:"",
         initialEstablishmentCost:"",
         anualOperatingCost:"",
-        totalConsumerMarket:"",
+        totalConsumerMarket:100,
         finalHead:null,
         finalTail:null,
         head:{},
         tail:{},
         selectedPriceStrategy:"",
         selectedbusinessModel:"",
+        selectedPricingModel:"",
         errorMessage:false
     })
 
