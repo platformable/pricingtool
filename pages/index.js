@@ -44,7 +44,7 @@ export default function Home() {
                 </div>
                 <div className="grid justify-end md:my-0 mt-10">
                   <Image
-                    src="/API Monetization Tool Isometric.png"
+                    src="/API_Monetization_Tool_Isometric.png"
                     alt="api pricing tool"
                     width="640" height="460"
                   />

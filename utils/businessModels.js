@@ -168,7 +168,7 @@ export const businessModels = [
       {
         "name":"Partner",
         "description":"Banks seek out fintech partners with non-competitive products and use partner APIs with selected fintech to extend product range to their customers",
-        "icon":"/Partner APIs.png",
+        "icon":"/Partner_APIs.png",
         "pricingModels":[
           {
             "name":"Freemium",

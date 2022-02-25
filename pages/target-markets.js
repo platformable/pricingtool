@@ -66,7 +66,7 @@ useEffect(()=>{
           <div className="cards-container grid md:grid-cols-3 grid-cols-1 gap-10">
 
             <div className="target-market-card bg-gray-50 rounded-xl shadow p-5 grid justify-center content-center">
-              <div className="flex justify-center mb-5"><img src="/What is the proportion of total revenues expected from HEAD-.png" width={60} height={60} alt="" /></div>
+              <div className="flex justify-center mb-5"><img src="/What_is_the_proportion_of_total_revenues_expected_from_HEAD.png" width={60} height={60} alt="" /></div>
               <h3 className="my-5 h-10">What is the proportion of total revenues expected from HEAD?</h3>
               
               {businessModel === "Marketplace"?
@@ -80,7 +80,7 @@ useEffect(()=>{
             </div>
 
             <div className="target-market-card bg-gray-50 rounded-xl shadow p-5 grid justify-center content-center">
-              <div className="flex justify-center mb-5"><Image src="/What is the proportion of total revenues expected from LONG-TAIL-.png" width={60} height={60} lt="" /></div>
+              <div className="flex justify-center mb-5"><Image src="/What_is_the_proportion_of_total_revenues_expected_from_LONG-TAIL.png" width={60} height={60} lt="" /></div>
               <h3 className="my-5 h-10">What is the proportion of total revenues expected from LONG-TAIL?</h3>
               {businessModel === "Marketplace"?
               <input type="range" min="1" max="100"  className="slider" id="rolPeriodrecoverInput" 
@@ -93,7 +93,7 @@ useEffect(()=>{
             </div>
 
             <div className="target-market-card bg-gray-50 rounded-xl shadow p-5 grid justify-center content-center">
-              <div className="flex justify-center mb-5"><img src="/Total consumer market.png" width={60} height={60} alt="" /></div>
+              <div className="flex justify-center mb-5"><img src="/Total_consumer_market.png" width={60} height={60} alt="" /></div>
               <h3 className="my-5 h-8">Total consumer market</h3>
            {/*    <input type="range" min="1" max="100" value="0" className="slider" id="rolPeriodrecoverInput" value="0" onChange={(e)=>setUser({...user,totalConsumerMarket:e.target.value})} min="1" max="100" 
               value={checkTotaltarget(revenueHead,revenueLongTail)} onChange={(e)=>setUser({...user,totalConsumerMarket:e.target.value})}/>

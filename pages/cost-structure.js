@@ -99,7 +99,7 @@ export default function CostStructure() {
                         aria-activedescendant="listbox-option-3"
                         onMouseLeave={() => setCostModelList(!costModelList)}
                       >
-                        {businessModel.costModels.map((model, index) => {
+                        {businessModel.costModels?.map((model, index) => {
                           return (
                             <li
                               className="select-none relative py-2 pl-3 pr-9 cursor-pointer hover:bg-gray-200"
@@ -193,7 +193,7 @@ export default function CostStructure() {
                 <div className="cost-structure-card bg-gray-50 rounded-xl shadow p-5 grid justify-center content-center">
                   <div className="flex justify-center mb-5">
                     <Image
-                      src="/Over what Rol period (in number of years) do you want to recover stablishment costs-.png"
+                      src="/rolPeriodRecover_icon.png"
                       alt=""
                       width={60}
                       height={60}
@@ -224,7 +224,7 @@ export default function CostStructure() {
                 <div className="cost-structure-card bg-gray-50 rounded-xl shadow p-5 grid justify-center content-center">
                   <div className="flex justify-center mb-5">
                     <img
-                      src="/How many business units will be developing APIs this years.png"
+                      src="/businessUnits_icon.png"
                       alt=""
                       width={60}
                       height={60}
@@ -253,7 +253,7 @@ export default function CostStructure() {
                 <div className="cost-structure-card bg-gray-50 rounded-xl shadow p-5 grid justify-center content-center">
                   <div className="flex justify-center mb-5">
                     <img
-                      src="On average, how many bundled APIs will each business unit be creating this year-.png"
+                      src="bundledApis_icon.png"
                       alt=""
                       width={60}
                       height={60}

@@ -31,9 +31,7 @@ export default function Header() {
     }
   };
 
-  useEffect(()=>{
-    console.log("user.errorMessage: ", user.errorMessage)
-  },[user.errorMessage])
+
 
   return (
     <section className="bg-blue head-navigation-container py-5">
@@ -43,7 +41,7 @@ export default function Header() {
           <div className="grid md:grid-cols-2 grid-cols-1 md:px-0 px-5">
             <div className="header-navigation-left flex md:justify-start justify-center md:mb-0 mb-5">
               <Image
-                src="/Platformable Tools icon.png"
+                src="/Platformable_Tools_icon.png"
                 alt=""
                 width={602}
                 height={245}
@@ -78,7 +76,7 @@ export default function Header() {
                 >
                   <div className="header-icon">
                     <Image
-                      src="/Business Objectives on.png"
+                      src="/Business_Objectives_on.png"
                       alt=""
                       width={50}
                       height={50}
@@ -115,7 +113,7 @@ export default function Header() {
                 >
                   <div className="header-icon">
                     <Image
-                      src="/Cost Structure off.png"
+                      src="/Cost_Structure_off.png"
                       alt=""
                       width={50}
                       height={50}
@@ -146,7 +144,7 @@ export default function Header() {
                 >
                   <div className="header-icon">
                     <Image
-                      src="/Target Market off.png"
+                      src="/Target_Market_off.png"
                       alt=""
                       width={50}
                       height={50}
@@ -176,7 +174,7 @@ export default function Header() {
                 >
                   <div className="header-icon">
                     <Image
-                      src="/Pricing Strategies off.png"
+                      src="/Pricing_Strategies_off.png"
                       alt=""
                       width={50}
                       height={50}
@@ -207,7 +205,7 @@ export default function Header() {
                 >
                   <div className="header-icon">
                     <Image
-                      src="/Target Market off.png"
+                      src="/Target_Market_off.png"
                       alt=""
                       width={50}
                       height={50}
@@ -239,7 +237,7 @@ export default function Header() {
                   </h3>
                   <div className="header-icon">
                     <Image
-                      src="/final pdf miniature off.png"
+                      src="/final_pdf_miniature_off.png"
                       alt=""
                       width={60}
                       height={90}

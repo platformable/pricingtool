@@ -230,7 +230,7 @@ export default function Results() {
               <div className="form-container grid grid-cols-3 items-center mt-1">
                 <div>
                   <img
-                    src="/How many business units will be developing APIs this years.png"
+                    src="/businessUnits_icon.png"
                     width={30}
                     height={30}
                     alt=""
@@ -252,7 +252,7 @@ export default function Results() {
               <div className="form-container grid grid-cols-3 items-center mt-1">
                 <div>
                   <img
-                    src="On average, how many bundled APIs will each business unit be creating this year-.png"
+                    src="bundledApis_icon.png"
                     width={30}
                     height={30}
                     alt=""
@@ -274,7 +274,7 @@ export default function Results() {
               <div className="form-container grid grid-cols-3 items-center mt-1">
                 <div>
                   <img
-                    src="/Over what Rol period (in number of years) do you want to recover stablishment costs-.png"
+                    src="/rolPeriodRecover_icon.png"
                     alt=""
                     width={30}
                     height={30}
@@ -441,7 +441,7 @@ export default function Results() {
                 <div className="form-container grid  grid-cols-head-tail gap-10  items-center">
                   <div>
                     <img
-                      src="/What is the proportion of total revenues expected from HEAD-.png"
+                      src="/What_is_the_proportion_of_total_revenues_expected_from_HEAD.png"
                       width={60}
                       height={60}
                       alt=""
@@ -462,7 +462,7 @@ export default function Results() {
                 <div className=" grid  grid-cols-head-tail gap-10 justify-between items-center">
                   <div>
                     <Image
-                      src="/What is the proportion of total revenues expected from LONG-TAIL-.png"
+                      src="/What_is_the_proportion_of_total_revenues_expected_from_LONG-TAIL.png"
                       width={60}
                       height={60}
                       lt=""
@@ -502,7 +502,7 @@ export default function Results() {
                 }}
               >
                 <img
-                  src="/What is the proportion of total revenues expected from HEAD-.png"
+                  src="/What_is_the_proportion_of_total_revenues_expected_from_HEAD.png"
                   width={60}
                   height={60}
                   alt=""
@@ -529,7 +529,7 @@ export default function Results() {
                 }}
               >
                 <img
-                  src="/What is the proportion of total revenues expected from HEAD-.png"
+                  src="/What_is_the_proportion_of_total_revenues_expected_from_LONG-TAIL.png"
                   width={60}
                   height={60}
                   alt=""
