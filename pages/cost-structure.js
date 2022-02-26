@@ -11,6 +11,7 @@ export default function CostStructure() {
   const [user, setUser] = useContext(UserContext);
   const { costModel, primaryObjective, apiCostModel, businessModel } = user;
   const [myOwnData, setMyOwnData] = useState({
+    name:"I will add my own data",
     cost: null,
     year: null,
   });
@@ -26,9 +27,11 @@ export default function CostStructure() {
     setUser({ ...user, apiCostModel: model });
   };
 
-/*   useEffect(() => {
+  useEffect(() => {
     handleMyData();
-  }, [myOwnData.cost, myOwnData.year]); */
+  }, [myOwnData.cost, myOwnData.year]);
+
+  console.log("user apiCostModel:", user.apiCostModel)
 
   return (
     <>
@@ -174,7 +177,6 @@ export default function CostStructure() {
                       />
                     )}
                     </div>
-
                     <div>
                       <p className="text-xs md:my-0 my-2">Anual operating costs ($)</p>
                     </div>

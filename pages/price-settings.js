@@ -455,7 +455,7 @@ if(user.pricingModel.tail){
                   className="border rounded py-1 px-2 text-main-color text-xs"
                   value={
                     user.apiCostModel
-                      ? `$${user.apiCostModel.cost?.toLocaleString()}`
+                      ? `${user.apiCostModel.cost?.toLocaleString()}`
                       : ""
                   }
                 />
@@ -472,7 +472,7 @@ if(user.pricingModel.tail){
                   className="border rounded py-1 px-2 text-main-color text-xs"
                   value={
                     user.apiCostModel
-                      ? `$${user.apiCostModel.costYear?.toLocaleString()}`
+                      ? `${user.apiCostModel.costYear?.toLocaleString()}`
                       : ""
                   }
                 />

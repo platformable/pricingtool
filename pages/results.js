@@ -303,7 +303,7 @@ export default function Results() {
                   className="border w-full rounded py-1 px-2 text-main-color text-xs"
                   value={
                     user.apiCostModel
-                      ? `$${user.apiCostModel.cost?.toLocaleString()}`
+                      ? `${user.apiCostModel.cost?.toLocaleString()}`
                       : ""
                   }
                 />
@@ -367,7 +367,7 @@ export default function Results() {
                   className="border w-full rounded py-1 px-2 text-main-color text-xs"
                   value={
                     user.apiCostModel
-                      ? `$${user.apiCostModel.costYear?.toLocaleString()}`
+                      ? `${user.apiCostModel.costYear?.toLocaleString()}`
                       : ""
                   }
                 />
